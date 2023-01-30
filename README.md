@@ -2,12 +2,13 @@
 ### Creating a Hotel Management System from scratch that automates hotel operations in terms of:
 - Adding a new hotel branch.
 - Adding a new guest.
-- Adding a new room
+- Adding a new room.
 - Booking a Room.
-- Tracking a room reservation (Available/Booked)
-- Canceling a room reservation
+- Tracking a room reservation. (Available/Booked)
+- Canceling a room reservation.
 - Creating an event.
 - Booking and Recommending hotel events.
+- Validating Reservations.
 
 ### Features:
 
