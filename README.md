@@ -5,9 +5,9 @@
 - Adding a new room
 - Booking a Room.
 - Tracking a room reservation (Available/Booked)
-- Cancelling a room reservation
+- Canceling a room reservation
 - Creating an event.
-- Booking and Recommending hotel's events.
+- Booking and Recommending hotel events.
 
 ### Features:
 
@@ -27,7 +27,7 @@
 - [Creating Object Package](#creating-object-package) **{package}**
 - [Finding Object Package](#finding-object-package) **{package}**
 
-**Note:** More features could be added later on to the porject
+**Note:** More features could be added later on to the project
 
 
 ## 1- Database Design (ERD and Mapping)
