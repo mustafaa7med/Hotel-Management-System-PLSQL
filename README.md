@@ -2,25 +2,43 @@
 ### Creating a Hotel Management System from scratch that automates the hotel operations in terms of:
 - Adding a new hotel branch.
 - Adding a new guest.
+- Adding a new room
 - Booking a Room.
 - Tracking a room reservation (Available/Booked)
 - Cancelling a room reservation
 - Creating an event.
 - Booking and Recommending hotel's events.
 
+### Features:
+
+- [add hotel](### add_hotel Feature) 
+- add_room **{procedure}**
+- add_guest **{procedure}**
+- book_room **{procedure}**
+- add_event **{procedure}**
+- cancel_room_reservation **{procedure}**
+- find_hotel **{function}**
+- find_room **{function}**
+- find_reservation **{function}**
+- find_event **{function}**
+- find_event_reservation **{function}**
+- room_registry_trg **{trigger}**
+- cancel_room_registry_trg **{trigger}**
+
 **Note:** More features could be added later on to the porject
 
-## Database Design (ERD and Mapping)
 
-**ERD**
+## 1- Database Design (ERD and Mapping)
+
+### ERD
 
 ![ERD](https://user-images.githubusercontent.com/81536586/215492194-43b72473-b4ea-4d75-9f45-f50217bcecf1.jpg)
 
-**MAPPING**
+### MAPPING
 
 ![MAPPING](https://user-images.githubusercontent.com/81536586/215492379-2b2d5459-6a1f-4129-8998-b0204cb1f2da.jpg)
 
-## 1- CREATING TABLES
+## 2- CREATING TABLES
 
 ```sql
 -- Creating all tables
@@ -86,14 +104,15 @@ CREATE TABLE room_registry(room_id number,
                            CHECK (Room_Availability in ('available' , 'booked' ))
                            );
 ```
-## 2- Creating Sequences and Features for
+## 3- Creating Sequences and Features for
 
 - **Adding** hotels, rooms, guests, events.
 
 - **Booking** rooms and events.
 
-```sql
+### add_hotel Feature
 
+```sql
 -- Creating Sequence for Hotel_id
 CREATE SEQUENCE hotel_seq START WITH 1 INCREMENT BY 1 MAXVALUE 999999 ORDER;
 
@@ -109,8 +128,11 @@ BEGIN
     INSERT INTO hotel VALUES(hotel_seq.nextval, h_name, h_address, h_phone);
     
 END;
+```
 
+### add_room Feature
 
+``sql
 -- Creating Sequence for room_id
 CREATE SEQUENCE room_seq START WITH 1 INCREMENT BY 1 MAXVALUE 999999 ORDER;
 
@@ -133,10 +155,12 @@ BEGIN
             dbms_output.put_line(' The room size has to be one of the following: small, medium, large');
     
 END;
+``
 
+### add_guest Feature
 
-
--- Creating Sequence for booking_id
+```sql
+-- Creating Sequence for guest_id
 CREATE SEQUENCE guest_seq START WITH 1 INCREMENT BY 1 MAXVALUE 999999 ORDER;
 
 -- Creating a procedure to add a new GUEST
@@ -150,8 +174,11 @@ BEGIN
     INSERT INTO guest VALUES(guest_seq.nextval, g_name, g_phone, g_email);
 
 END;
+```
 
+### book_room Feature
 
+```sql
 -- Creating Sequence for booking_id
 CREATE SEQUENCE book_seq START WITH 1 INCREMENT BY 1 MAXVALUE 999999 ORDER;
 
@@ -178,40 +205,11 @@ BEGIN
          dbms_output.put_line(' There is a foreign key constraint, Kindly consider the values');
 
 END;
-
-
--- Creating Sequence for event_id
-CREATE SEQUENCE event_seq START WITH 1 INCREMENT BY 1 MAXVALUE 999999 ORDER;
-
-
--- Creating a procedure to add a new event
-CREATE OR REPLACE PROCEDURE add_event(e_id number,
-                                      e_name varchar2
-                                      ) IS
-                                               
-
-BEGIN
-
-    INSERT INTO event VALUES(event_seq.nextval, e_name);
-    
-END;
-
-
--- Cancelling a room reservation
-CREATE OR REPLACE PROCEDURE cancel_room_reservation(r_id number,
-                                                    g_id number,
-                                                    b_id number
-                                                    ) IS
-                                                                                       
-                                                                     
-BEGIN
-
-    DELETE FROM room_reservation WHERE room_id = r_id AND guest_id = g_id AND booking_id = b_id;
-    
-END;
 ```
+###
 
-## 3- Creating Features For
+
+## 4- Creating Features For
 
 - **Retrieving** hotel, room, guest, room and event details.
 
