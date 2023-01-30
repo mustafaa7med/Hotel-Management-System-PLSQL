@@ -10,7 +10,9 @@
 - Booking and Recommending hotel events.
 - Validating Reservations.
 
-### Features:
+### Features:  
+
+*Click to fly to the selected feature*
 
 - [Add Hotel](#add-hotel) **{procedure}** 
 - [Add Room](#add-room) **{procedure}**
