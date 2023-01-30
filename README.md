@@ -1,5 +1,5 @@
-# Hotel Management System PLSQL
-### Creating a Hotel Management System from scratch that automates the hotel operations in terms of:
+# Hotel Management System Using PLSQL
+### Creating a Hotel Management System from scratch that automates hotel operations in terms of:
 - Adding a new hotel branch.
 - Adding a new guest.
 - Adding a new room
